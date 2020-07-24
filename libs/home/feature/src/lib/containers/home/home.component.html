@@ -8,12 +8,19 @@
         <button mat-button (click)="logoff()">Logout</button>
     </mat-drawer>
 
-    <div class="example-sidenav-content">
-        <button type="button" mat-button (click)="drawer.toggle()">
-            Toggle sidenav
-        </button>
+    <div class="sidenav-content" fxLayout="column">
 
-        <router-outlet></router-outlet>
+        <div fxFlex="0 1 auto">
+            <button type="button" mat-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div fxFlex="1 1 auto">
+            <router-outlet></router-outlet>
+        </div>
+
+        
+
         
     </div>
 </mat-drawer-container>
