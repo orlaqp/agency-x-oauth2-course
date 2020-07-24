@@ -14,7 +14,7 @@ export class SidebarComponent implements OnInit {
         { id: 'people', icon: 'people', text: 'Clients', route: '/home/clients' },
         { id: 'calendar', icon: 'insert_invitation', text: 'Calendar', route: '/home/calendar' },
         { id: 'payments', icon: 'attach_money', text: 'Payments', route: '/home/payments' },
-        { id: 'settings', icon: 'settings_input_component', text: 'Settings', route: '/settings' },
+        { id: 'settings', icon: 'settings_input_component', text: 'Settings', route: '/home/settings' },
     ]
 
   constructor(private router: Router) { }

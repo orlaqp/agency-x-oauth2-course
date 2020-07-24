@@ -29,6 +29,13 @@ import { NavigationFeatureModule } from '@agency-x/navigation/feature';
                 canActivate: [AuthorizationGuard],
                 children: [
                     {
+                        path: 'dashboard',
+                        loadChildren: () =>
+                            import('@agency-x/dashboard/feature').then(
+                                (module) => module.DashboardFeatureModule
+                            ),
+                    },
+                    {
                         path: 'clients',
                         loadChildren: () =>
                             import('@agency-x/clients/feature').then(
@@ -36,10 +43,24 @@ import { NavigationFeatureModule } from '@agency-x/navigation/feature';
                             ),
                     },
                     {
+                        path: 'calendar',
+                        loadChildren: () =>
+                            import('@agency-x/calendar/feature').then(
+                                (module) => module.CalendarFeatureModule
+                            ),
+                    },
+                    {
                         path: 'payments',
                         loadChildren: () =>
                             import('@agency-x/payments/feature').then(
                                 (module) => module.PaymentsFeatureModule
+                            ),
+                    },
+                    {
+                        path: 'settings',
+                        loadChildren: () =>
+                            import('@agency-x/settings/feature').then(
+                                (module) => module.SettingsFeatureModule
                             ),
                     },
                 ],

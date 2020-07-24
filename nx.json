@@ -56,6 +56,15 @@
         },
         "payments-feature": {
             "tags": []
+        },
+        "calendar-feature": {
+            "tags": []
+        },
+        "settings-feature": {
+            "tags": []
+        },
+        "dashboard-feature": {
+            "tags": []
         }
     },
     "tasksRunnerOptions": {

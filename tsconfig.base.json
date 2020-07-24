@@ -36,7 +36,18 @@
                 "libs/navigation/feature/src/index.ts"
             ],
             "@agency-x/clients/feature": ["libs/clients/feature/src/index.ts"],
-            "@agency-x/payments/feature": ["libs/payments/feature/src/index.ts"]
+            "@agency-x/payments/feature": [
+                "libs/payments/feature/src/index.ts"
+            ],
+            "@agency-x/calendar/feature": [
+                "libs/calendar/feature/src/index.ts"
+            ],
+            "@agency-x/settings/feature": [
+                "libs/settings/feature/src/index.ts"
+            ],
+            "@agency-x/dashboard/feature": [
+                "libs/dashboard/feature/src/index.ts"
+            ]
         }
     },
     "exclude": ["node_modules", "tmp"]
