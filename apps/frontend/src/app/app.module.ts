@@ -21,7 +21,6 @@ import {
     AuthDataAccessModule,
 } from '@agency-x/auth/data-access';
 import { AuthFeatureModule } from '@agency-x/auth/feature';
-import { NavigationFeatureModule } from '@agency-x/navigation/feature';
 import { LandingComponent } from '@agency-x/home/feature';
 import { AngularMaterialModule } from '@agency-x/angular-material';
 import { SharedSharedModule, NotFoundComponent } from '@agency-x/shared/shared';

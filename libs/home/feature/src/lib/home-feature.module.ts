@@ -12,21 +12,31 @@ import { AuthorizationGuard } from '@agency-x/auth/data-access';
 import { NavigationFeatureModule } from '@agency-x/navigation/feature';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AngularMaterialModule,
-    ThemePickerModule,
-    LanguagePickerModule,
-    EmailInputModule,
-    ReactiveFormsModule,
-    NavigationFeatureModule,
+    imports: [
+        CommonModule,
+        AngularMaterialModule,
+        ThemePickerModule,
+        LanguagePickerModule,
+        EmailInputModule,
+        ReactiveFormsModule,
+        NavigationFeatureModule,
 
-    RouterModule.forChild([
-      {path: '', pathMatch: 'full', component: HomeComponent
-      , canActivate: [ AuthorizationGuard ]
-    }
-    ])
-  ],
-  declarations: [LandingComponent, HomeComponent]
+        RouterModule.forChild([
+            {
+                path: '',
+                // pathMatch: 'full',
+                component: HomeComponent,
+                // canActixvate: [AuthorizationGuard],
+            },
+            {
+                path: 'clients',
+                loadChildren: () =>
+                    import('@agency-x/clients/feature').then(
+                        (module) => module.ClientsFeatureModule
+                    ),
+            },
+        ]),
+    ],
+    declarations: [LandingComponent, HomeComponent],
 })
 export class HomeFeatureModule {}

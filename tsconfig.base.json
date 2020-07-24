@@ -34,7 +34,8 @@
             "@agency-x/auth/feature": ["libs/auth/feature/src/index.ts"],
             "@agency-x/navigation/feature": [
                 "libs/navigation/feature/src/index.ts"
-            ]
+            ],
+            "@agency-x/clients/feature": ["libs/clients/feature/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

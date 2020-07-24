@@ -50,6 +50,9 @@
         },
         "navigation-feature": {
             "tags": []
+        },
+        "clients-feature": {
+            "tags": []
         }
     },
     "tasksRunnerOptions": {
