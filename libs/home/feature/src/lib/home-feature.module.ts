@@ -26,15 +26,18 @@ import { NavigationFeatureModule } from '@agency-x/navigation/feature';
                 path: '',
                 // pathMatch: 'full',
                 component: HomeComponent,
-                // canActixvate: [AuthorizationGuard],
+                canActivate: [AuthorizationGuard],
+                children: [
+                    {
+                        path: 'clients',
+                        loadChildren: () =>
+                            import('@agency-x/clients/feature').then(
+                                (module) => module.ClientsFeatureModule
+                            ),
+                    },        
+                ]
             },
-            {
-                path: 'clients',
-                loadChildren: () =>
-                    import('@agency-x/clients/feature').then(
-                        (module) => module.ClientsFeatureModule
-                    ),
-            },
+            
         ]),
     ],
     declarations: [LandingComponent, HomeComponent],

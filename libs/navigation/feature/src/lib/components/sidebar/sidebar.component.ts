@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 export class SidebarComponent implements OnInit {
     menuItems = [
         { id: 'add', icon: 'add', text: 'Add' },
-        { id: 'dashboard', icon: 'dashboard', text: 'Dashboard', route: '/dashboard' },
-        { id: 'people', icon: 'people', text: 'Clients', route: '/clients' },
-        { id: 'calendar', icon: 'insert_invitation', text: 'Calendar', route: '/calendar' },
-        { id: 'payments', icon: 'attach_money', text: 'Payments', route: '/payments' },
+        { id: 'dashboard', icon: 'dashboard', text: 'Dashboard', route: '/home/dashboard' },
+        { id: 'people', icon: 'people', text: 'Clients', route: '/home/clients' },
+        { id: 'calendar', icon: 'insert_invitation', text: 'Calendar', route: '/home/calendar' },
+        { id: 'payments', icon: 'attach_money', text: 'Payments', route: '/home/payments' },
         { id: 'settings', icon: 'settings_input_component', text: 'Settings', route: '/settings' },
     ]
 
@@ -23,7 +23,7 @@ export class SidebarComponent implements OnInit {
   }
 
   navigate(item) {
-    this.router.navigateByUrl(item.route);
+    // this.router.navigateByUrl(item.route);
   }
 
 }
