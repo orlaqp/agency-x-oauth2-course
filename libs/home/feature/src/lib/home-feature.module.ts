@@ -34,10 +34,17 @@ import { NavigationFeatureModule } from '@agency-x/navigation/feature';
                             import('@agency-x/clients/feature').then(
                                 (module) => module.ClientsFeatureModule
                             ),
-                    },        
-                ]
+                    },
+                    {
+                        path: 'payments',
+                        loadChildren: () =>
+                            import('@agency-x/payments/feature').then(
+                                (module) => module.PaymentsFeatureModule
+                            ),
+                    },
+                ],
             },
-            
+           
         ]),
     ],
     declarations: [LandingComponent, HomeComponent],

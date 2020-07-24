@@ -572,6 +572,41 @@
                     "style": "scss"
                 }
             }
+        },
+        "payments-feature": {
+            "projectType": "library",
+            "root": "libs/payments/feature",
+            "sourceRoot": "libs/payments/feature/src",
+            "prefix": "agency-x",
+            "architect": {
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "libs/payments/feature/tsconfig.lib.json",
+                            "libs/payments/feature/tsconfig.spec.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**",
+                            "!libs/payments/feature/**/*"
+                        ]
+                    }
+                },
+                "test": {
+                    "builder": "@nrwl/jest:jest",
+                    "options": {
+                        "jestConfig": "libs/payments/feature/jest.config.js",
+                        "tsConfig": "libs/payments/feature/tsconfig.spec.json",
+                        "passWithNoTests": true,
+                        "setupFile": "libs/payments/feature/src/test-setup.ts"
+                    }
+                }
+            },
+            "schematics": {
+                "@nrwl/angular:component": {
+                    "style": "scss"
+                }
+            }
         }
     },
     "cli": {

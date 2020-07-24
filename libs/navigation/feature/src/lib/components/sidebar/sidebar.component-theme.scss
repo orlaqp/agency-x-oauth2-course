@@ -2,7 +2,7 @@
 
 @mixin sidebar-component-theme($theme, $extraColorMap) {
     $primary: map-get($theme, primary);
-    $hover-color: mat-color($primary, 500);
+    $highlight-color: mat-color($primary, 500);
     
     // $foreground: map-get($theme, foreground);
     $background: map-get($theme, background);
@@ -22,14 +22,16 @@
                 box-shadow: 0 0 0 rgba($icon-color, .5);
                 transition: all .3s;
                 background-color: $selected-bg-color;
+                border: 3px solid transparent;
 
                 &:hover, &--selected {
-                    color: $hover-color;
+                    color: $highlight-color;
                 }
 
                 &--selected {
-                    box-shadow: 0 8px 40px rgba($icon-color, .5);
+                    // box-shadow: 0 8px 40px rgba($icon-color, .5);
                     @include borderRadius(1rem);
+                    border: 3px solid $highlight-color;
                 }
             }
         }

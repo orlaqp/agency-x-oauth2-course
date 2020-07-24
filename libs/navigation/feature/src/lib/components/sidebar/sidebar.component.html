@@ -1,18 +1,18 @@
-
-
 <ul class="default">
-
     <li>
-        <img class="logo" src="/assets/images/logo.svg" alt="">
+        <img class="logo" src="/assets/images/logo.svg" alt="" />
     </li>
 
-    <li *ngFor="let item of menuItems" class="menu-item" (click)="navigate(item)" [routerLink]="item.route" routerLinkActive="active-link">
-        
-            <mat-icon class="menu-item__icon">{{item.icon}}</mat-icon>
-            <div class="menu-item__text mat-body-1">
-                {{item.text}}
-            </div>
-        
+    <li
+        *ngFor="let item of menuItems"
+        class="menu-item"
+        (click)="navigate(item)"
+        [routerLink]="item.route"
+        routerLinkActive="menu-item--selected"
+    >
+        <mat-icon class="menu-item__icon">{{ item.icon }}</mat-icon>
+        <div class="menu-item__text mat-body-1">
+            {{ item.text }}
+        </div>
     </li>
-
 </ul>

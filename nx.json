@@ -53,6 +53,9 @@
         },
         "clients-feature": {
             "tags": []
+        },
+        "payments-feature": {
+            "tags": []
         }
     },
     "tasksRunnerOptions": {

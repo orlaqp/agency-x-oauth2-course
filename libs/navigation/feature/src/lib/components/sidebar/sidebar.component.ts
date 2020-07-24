@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
     menuItems = [
-        { id: 'add', icon: 'add', text: 'Add' },
+        { id: 'add', icon: 'add', text: 'Add', route: '/add/item' },
         { id: 'dashboard', icon: 'dashboard', text: 'Dashboard', route: '/home/dashboard' },
         { id: 'people', icon: 'people', text: 'Clients', route: '/home/clients' },
         { id: 'calendar', icon: 'insert_invitation', text: 'Calendar', route: '/home/calendar' },

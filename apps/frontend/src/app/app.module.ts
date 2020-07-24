@@ -23,7 +23,7 @@ import {
 import { AuthFeatureModule } from '@agency-x/auth/feature';
 import { LandingComponent } from '@agency-x/home/feature';
 import { AngularMaterialModule } from '@agency-x/angular-material';
-import { SharedSharedModule, NotFoundComponent } from '@agency-x/shared/shared';
+import { SharedModule, NotFoundComponent } from '@agency-x/shared/shared';
 
 const w = window || {};
 const browserEnv = w['__env'] || {};
@@ -55,7 +55,7 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
         BrowserAnimationsModule,
         ConfigFrontendModule,
         // Shared
-        SharedSharedModule,
+        SharedModule,
         // Auth
         AuthModule.forRoot(),
         // Ngxs

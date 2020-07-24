@@ -8,4 +8,4 @@ import { AngularTiltModule } from 'angular-tilt';
   declarations: [NotFoundComponent],
   exports: [NotFoundComponent]
 })
-export class SharedSharedModule {}
+export class SharedModule {}
