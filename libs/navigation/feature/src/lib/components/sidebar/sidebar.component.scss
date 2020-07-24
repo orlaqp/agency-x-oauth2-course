@@ -4,38 +4,59 @@ $icon-size: 36px;
     width: 10rem;
 }
 
-.default {
+.menu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem;
 
-    .menu-item {
+    &__navigation {
         flex: 0 1 auto;
 
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 1rem;
-        padding: 1rem;
-        cursor: pointer;
+        justify-content: center;
+    }
 
-        &__icon {
-            flex: 0 1 auto;
-            width: $icon-size;
-            height: $icon-size;
-            font-size: $icon-size;
-        }
+    &__profile {
+        flex: 1 1 auto;
+        
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+}
 
-        &__text {
-            flex: 0 1 auto;
-        }
+.default {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
 
-        &:focus {
-            outline: none;
-        }
+}
 
+.menu-item {
+    flex: 0 1 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+
+    &__icon {
+        flex: 0 1 auto;
+        width: $icon-size;
+        height: $icon-size;
+        font-size: $icon-size;
+    }
+
+    &__text {
+        flex: 0 1 auto;
+    }
+
+    &:focus {
+        outline: none;
     }
 
 }

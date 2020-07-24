@@ -63,9 +63,16 @@ import { NavigationFeatureModule } from '@agency-x/navigation/feature';
                                 (module) => module.SettingsFeatureModule
                             ),
                     },
+                    {
+                        path: 'profile',
+                        loadChildren: () =>
+                            import('@agency-x/profile/feature').then(
+                                (module) => module.ProfileFeatureModule
+                            ),
+                    },
                 ],
             },
-           
+            
         ]),
     ],
     declarations: [LandingComponent, HomeComponent],

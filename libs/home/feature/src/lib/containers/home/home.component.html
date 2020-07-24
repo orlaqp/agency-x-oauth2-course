@@ -1,11 +1,9 @@
 <mat-drawer-container class="example-container h-100" autosize>
     <mat-drawer #drawer class="sidenav" mode="side">
-        <div fxLayout="column">
-            
+        <div class="h-100" fxLayout="column">
             <agency-x-sidebar fxFlex="1 1 auto"></agency-x-sidebar>
-            
         </div>
-        <button mat-button (click)="logoff()">Logout</button>
+        <!-- <button mat-button (click)="logoff()">Logout</button> -->
     </mat-drawer>
 
     <div class="sidenav-content" fxLayout="column">
@@ -18,9 +16,6 @@
         <div fxFlex="1 1 auto">
             <router-outlet></router-outlet>
         </div>
-
-        
-
         
     </div>
 </mat-drawer-container>

@@ -65,6 +65,9 @@
         },
         "dashboard-feature": {
             "tags": []
+        },
+        "profile-feature": {
+            "tags": []
         }
     },
     "tasksRunnerOptions": {
