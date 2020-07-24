@@ -24,6 +24,7 @@ import { AuthFeatureModule } from '@agency-x/auth/feature';
 import { NavigationFeatureModule } from '@agency-x/navigation/feature';
 import { LandingComponent } from '@agency-x/home/feature';
 import { AngularMaterialModule } from '@agency-x/angular-material';
+import { SharedSharedModule, NotFoundComponent } from '@agency-x/shared/shared';
 
 const w = window || {};
 const browserEnv = w['__env'] || {};
@@ -46,12 +47,16 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
                         import('@agency-x/home/feature').then(
                             (module) => module.HomeFeatureModule
                         ),
-                }
+                },
+                {path: '404', component: NotFoundComponent},
+                {path: '**', redirectTo: '/404'}
             ],
             { initialNavigation: 'enabled' }
         ),
         BrowserAnimationsModule,
         ConfigFrontendModule,
+        // Shared
+        SharedSharedModule,
         // Auth
         AuthModule.forRoot(),
         // Ngxs

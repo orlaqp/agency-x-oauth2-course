@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'agency-x-sidebar',
@@ -9,16 +10,20 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 export class SidebarComponent implements OnInit {
     menuItems = [
         { id: 'add', icon: 'add', text: 'Add' },
-        { id: 'dashboard', icon: 'dashboard', text: 'Dashboard' },
-        { id: 'people', icon: 'people', text: 'Clients' },
-        { id: 'calendar', icon: 'insert_invitation', text: 'Calendar' },
-        { id: 'payments', icon: 'attach_money', text: 'Payments' },
-        { id: 'settings', icon: 'settings_input_component', text: 'Settings' },
+        { id: 'dashboard', icon: 'dashboard', text: 'Dashboard', route: '/dashboard' },
+        { id: 'people', icon: 'people', text: 'Clients', route: '/clients' },
+        { id: 'calendar', icon: 'insert_invitation', text: 'Calendar', route: '/calendar' },
+        { id: 'payments', icon: 'attach_money', text: 'Payments', route: '/payments' },
+        { id: 'settings', icon: 'settings_input_component', text: 'Settings', route: '/settings' },
     ]
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navigate(item) {
+    this.router.navigateByUrl(item.route);
   }
 
 }
