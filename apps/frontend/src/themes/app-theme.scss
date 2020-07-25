@@ -2,6 +2,7 @@
 @import '../../../../libs/email-input/src/lib/email-input/email-input.component-theme.scss';
 @import '../../../../libs/home/feature/src/lib/containers/home/home.component-theme.scss';
 @import '../../../../libs/navigation/feature/src/lib/components/sidebar/sidebar.component-theme.scss';
+@import '../../../../libs/calendar/feature/src/lib/containers/calendar/calendar.component-theme.scss';
 
 @mixin app-theme($theme) {
 
@@ -16,4 +17,5 @@
     @include home-component-theme($theme, $extraColorMap);
     @include sidebar-component-theme($theme, $extraColorMap);
     @include email-input-component-theme($theme);
+    @include calendar-component-theme($theme);
 }

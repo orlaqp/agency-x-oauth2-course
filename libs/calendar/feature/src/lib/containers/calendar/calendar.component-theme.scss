@@ -1,0 +1,56 @@
+@import 'mixins';
+@import '_typography';
+
+@mixin calendar-component-theme($theme) {
+    $primary-palette: map-get($theme, primary);
+    // $primary:           map-get($theme, primary);
+    $sunday-color: mat-color($primary-palette, 100);
+
+    agency-x-calendar {
+        .calendar-container {
+            .fc {
+                font-size: mat-font-size($typography-config, body-1);
+                font-family: mat-font-family($typography-config);
+
+                .fc-scrollgrid {
+                    border: none;
+                } 
+
+                th {
+                    border: none;
+                }
+
+                tr {
+                    td {
+                        border: none;
+
+                        &.fc-day-sun {
+                            padding: 5px;
+                            
+                            background-color: rgba($sunday-color, .15);
+                        }
+                        
+                        &.fc-day-mon {}
+
+                        &.fc-day-tue {}
+
+                        &.fc-day-wed {}
+
+                        &.fc-day-thu {}
+
+                        &.fc-day-fri {}
+
+                        &.fc-day-sat {}
+
+                        &.fc-day-today {}
+
+                        &.fc-day-past {}
+
+                        &.fc-day-future {}
+                    }
+                }
+            }
+        }
+    }
+
+}
