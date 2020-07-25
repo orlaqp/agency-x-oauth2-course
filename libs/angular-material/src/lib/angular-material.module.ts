@@ -7,7 +7,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { OverlayModule } from '@angular/cdk/overlay';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
         MatButtonModule,
         MatGridListModule,
         MatSidenavModule,
+        MatCardModule,
     ],
     exports: [
         FlexLayoutModule,
@@ -26,7 +28,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
         MatIconModule,
         MatButtonModule,
         MatGridListModule,
-        MatSidenavModule
+        MatSidenavModule,
+        MatCardModule,
     ],
 })
 export class AngularMaterialModule {}

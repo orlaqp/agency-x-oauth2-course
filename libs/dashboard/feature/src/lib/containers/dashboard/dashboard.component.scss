@@ -1,0 +1,40 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.revenue {
+    grid-area: revenue;
+}
+
+.new-customers {
+    grid-area: newCustomers;
+}
+
+.recent-orders {
+    grid-area: recentOrders;
+}
+
+.best-customers {
+    grid-area: bestCustomers;
+}
+
+.activity-feed {
+    grid-area: activityFeed;
+}
+
+.dash {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 15rem auto 30rem;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    grid-template-areas:
+        "revenue       revenue        newCustomers"
+        "revenue       revenue        activityFeed"
+        "recentOrders  bestCustomers  activityFeed";
+    margin: 2rem;
+    height: 100%;
+}
+
