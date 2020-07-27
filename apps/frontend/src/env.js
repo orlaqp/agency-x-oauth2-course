@@ -57,7 +57,7 @@
   ];
 
   oidcConfig = {
-    stsServer: 'http://127.0.0.1:8080/auth/realms/agency-x',
+    stsServer: 'http://localhost:8080/auth/realms/agency-x',
     redirectUrl: window.location.origin,
     // postLogoutRedirectUri: window.location.origin,
     clientId: 'web-app',

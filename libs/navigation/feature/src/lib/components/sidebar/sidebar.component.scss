@@ -1,7 +1,21 @@
 $icon-size: 36px;
 
+.icon-basic {
+    width: $icon-size;
+    height: $icon-size;
+    font-size: $icon-size;
+}
+
 .logo {
     width: 10rem;
+}
+
+.add-item {
+    margin-bottom: 4rem;
+
+    .mat-icon {
+        @extend .icon-basic;
+    }
 }
 
 .menu {
@@ -46,9 +60,7 @@ $icon-size: 36px;
 
     &__icon {
         flex: 0 1 auto;
-        width: $icon-size;
-        height: $icon-size;
-        font-size: $icon-size;
+        @extend .icon-basic;
     }
 
     &__text {

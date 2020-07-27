@@ -25,6 +25,7 @@ import { NavigationFeatureModule } from '@agency-x/navigation/feature';
             {
                 path: '',
                 // pathMatch: 'full',
+                // redirectTo: '/home/dashboard',
                 component: HomeComponent,
                 canActivate: [AuthorizationGuard],
                 children: [
