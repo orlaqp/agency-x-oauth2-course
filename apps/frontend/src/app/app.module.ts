@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
@@ -10,13 +10,6 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { filter } from 'rxjs/operators';
-import {
-    AuthModule,
-    EventTypes,
-    OidcConfigService,
-    PublicEventsService,
-} from 'angular-auth-oidc-client';
 import {
     AuthDataAccessModule,
 } from '@agency-x/auth/data-access';
@@ -24,13 +17,6 @@ import { AuthFeatureModule } from '@agency-x/auth/feature';
 import { LandingComponent } from '@agency-x/home/feature';
 import { AngularMaterialModule } from '@agency-x/angular-material';
 import { SharedModule, NotFoundComponent } from '@agency-x/shared/shared';
-
-const w = window || {};
-const browserEnv = w['__env'] || {};
-
-export function configureAuth(oidcConfigService: OidcConfigService) {
-    return () => oidcConfigService.withConfig(browserEnv.oidcConfig);
-}
 
 @NgModule({
     declarations: [AppComponent],
@@ -57,7 +43,7 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
         // Shared
         SharedModule,
         // Auth
-        AuthModule.forRoot(),
+        AuthDataAccessModule,
         // Ngxs
         NgxsModule.forRoot([]),
         NgxsStoragePluginModule.forRoot(),
@@ -70,29 +56,6 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
         AuthFeatureModule,
         // NavigationFeatureModule,
     ],
-    providers: [
-        OidcConfigService,
-        {
-            provide: APP_INITIALIZER,
-            useFactory: configureAuth,
-            deps: [OidcConfigService],
-            multi: true,
-        },
-    ],
     bootstrap: [AppComponent],
 })
-export class AppModule {
-    constructor(private readonly eventService: PublicEventsService) {
-        this.eventService
-            .registerForEvents()
-            .pipe(
-                filter(
-                    (notification) =>
-                        notification.type === EventTypes.ConfigLoaded
-                )
-            )
-            .subscribe((config) => {
-                console.log('ConfigLoaded', config);
-            });
-    }
-}
+export class AppModule {}
