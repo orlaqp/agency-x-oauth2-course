@@ -68,6 +68,9 @@
         },
         "profile-feature": {
             "tags": []
+        },
+        "store": {
+            "tags": []
         }
     },
     "tasksRunnerOptions": {

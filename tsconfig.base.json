@@ -48,7 +48,8 @@
             "@agency-x/dashboard/feature": [
                 "libs/dashboard/feature/src/index.ts"
             ],
-            "@agency-x/profile/feature": ["libs/profile/feature/src/index.ts"]
+            "@agency-x/profile/feature": ["libs/profile/feature/src/index.ts"],
+            "@agency-x/store": ["libs/store/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]
