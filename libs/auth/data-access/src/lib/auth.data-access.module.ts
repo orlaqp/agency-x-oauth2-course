@@ -9,6 +9,7 @@ import {
     PublicEventsService,
 } from 'angular-auth-oidc-client';
 import { filter } from 'rxjs/operators';
+import { AuthService } from './services/auth.service';
 
 const w = window || {};
 const browserEnv = w['__env'] || {};
@@ -35,7 +36,10 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
 ],
 })
 export class AuthDataAccessModule {
-    constructor(private readonly eventService: PublicEventsService) {
+    constructor(
+        private readonly eventService: PublicEventsService,
+        private readonly authService: AuthService
+    ) {
         this.eventService
             .registerForEvents()
             .pipe(

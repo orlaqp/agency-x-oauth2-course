@@ -18,20 +18,16 @@ import { routes } from './routes';
     declarations: [AppComponent],
     imports: [
         BrowserModule,
-        RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
         BrowserAnimationsModule,
+        RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
         ConfigFrontendModule,
-        // Shared
         SharedModule,
-        // Auth
-        AuthDataAccessModule,
-        // Store
         StoreModule,
         // features / data access
+        AuthDataAccessModule,
         AngularMaterialModule,
         AuthDataAccessModule,
         AuthFeatureModule,
-        // NavigationFeatureModule,
     ],
     bootstrap: [AppComponent],
 })
