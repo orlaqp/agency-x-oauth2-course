@@ -8,8 +8,10 @@ import { EmailInputModule } from '@agency-x/email-input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from '@agency-x/angular-material';
 import { HomeComponent } from './containers/home/home.component';
-import { AuthorizationGuard } from '@agency-x/auth/data-access';
+import { AuthorizationGuard, ActivityGuard } from '@agency-x/auth/data-access';
 import { NavigationFeatureModule } from '@agency-x/navigation/feature';
+import { ViewDashboardActivity } from '@agency-x/activities';
+
 
 @NgModule({
     imports: [
@@ -31,6 +33,10 @@ import { NavigationFeatureModule } from '@agency-x/navigation/feature';
                 children: [
                     {
                         path: 'dashboard',
+                        data: {
+                            activity: ViewDashboardActivity
+                        },
+                        canActivate: [ActivityGuard],
                         loadChildren: () =>
                             import('@agency-x/dashboard/feature').then(
                                 (module) => module.DashboardFeatureModule

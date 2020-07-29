@@ -8,3 +8,8 @@ export interface OidcUser {
     family_name: string;
     email: string;
 }
+
+export interface IActivity {
+    isAllowed(user: OidcUser): boolean;
+}
+

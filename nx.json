@@ -71,6 +71,9 @@
         },
         "store": {
             "tags": []
+        },
+        "activities": {
+            "tags": []
         }
     },
     "tasksRunnerOptions": {
