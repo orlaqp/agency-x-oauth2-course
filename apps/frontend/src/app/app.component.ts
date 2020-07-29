@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { Store } from '@ngxs/store';
 import { Router } from '@angular/router';
+import { AuthService } from '@agency-x/auth/data-access';
 
 @Component({
     selector: 'agx-root',
@@ -13,10 +14,12 @@ export class AppComponent implements OnInit {
 
     constructor(
         private oidcSecurityService: OidcSecurityService,
-        private router: Router
+        private router: Router,
+        private authService: AuthService
     ) {}
 
     ngOnInit() {
+        this.authService.checkAuth();
         // this.oidcSecurityService.checkAuth().subscribe((isAuthenticated) => {
         //     if (!isAuthenticated) {
         //         if ('/auto-login' !== window.location.pathname) {

@@ -19,6 +19,10 @@ export class SidebarComponent implements OnInit {
 
     profileItem = { id: 'profile', icon: 'portrait', text: 'Profile', route: '/home/profile' };
 
+    addActions = [
+        {  }
+    ]
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

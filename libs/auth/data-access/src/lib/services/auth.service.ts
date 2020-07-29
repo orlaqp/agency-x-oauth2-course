@@ -12,8 +12,11 @@ export class AuthService {
     userData$ = this.oidcSecurityService.userData$;
 
     constructor(private router: Router, private envService: EnvService, private oidcSecurityService: OidcSecurityService) {
+        
+    }
+
+    checkAuth() {
         this.oidcSecurityService.checkAuth().subscribe((isAuthenticated) => {
-            debugger;
             if (!isAuthenticated) {
                 if ('/auto-login' !== window.location.pathname) {
                     this.setRedirect(window.location.pathname);
@@ -41,6 +44,10 @@ export class AuthService {
     }
 
     setRedirect(path = window.location.pathname) {
+        const storedPath = this.getRedirect();
+
+        if (storedPath) return;
+
         localStorage.setItem('redirect', path);
     }
 
@@ -48,16 +55,21 @@ export class AuthService {
         return localStorage.getItem('redirect');
     }
 
+    private removeRedirect() {
+        localStorage.removeItem('redirect');
+    }
+
     private navigateToStoredEndpoint() {
         const path = this.getRedirect();
+
+        this.removeRedirect();
 
         if (this.router.url === path) {
             return;
         }
 
-        debugger;
         if (path.toString().includes('/unauthorized')) {
-            this.router.navigate(['/']);
+            this.router.navigate(['/home']);
         } else if (path.toString() === '/') {
             this.router.navigate(['/home']);
         } else {
