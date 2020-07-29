@@ -6,11 +6,11 @@ volumes:
 
 services:
   mailtrap:
-    image: eaudeweb/mailtrap
+    image: eaudeweb/mailtrap:2.3
     ports: 
         - "8081:80"
   postgres:
-      image: postgres
+      image: postgres:12.3
       volumes:
         - postgres_data:/var/lib/postgresql/data
       environment:

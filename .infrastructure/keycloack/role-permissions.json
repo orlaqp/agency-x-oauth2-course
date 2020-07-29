@@ -1,0 +1,5 @@
+{ 
+    "admin": ["manage-account", "manage-clients", "manage-payments"], 
+    "manager": ["manage-clients", "manage-payments"], 
+    "employee": ["add-client", "edit-client", "add-payment"]
+}
