@@ -1,10 +1,9 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Select } from '@ngxs/store';
-import { AuthState, AuthService } from '@agency-x/auth/data-access';
-import { Observable, Subscription } from 'rxjs';
+import { AuthService } from '@agency-x/auth/data-access';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { OidcUser } from '@agency-x/activities';
+// import { OidcUser } from '@agency-x/auth/data-access';
 
 @Component({
     selector: 'agency-x-landing',
@@ -12,14 +11,14 @@ import { OidcUser } from '@agency-x/activities';
     styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit, OnDestroy {
-    @Select(AuthState.getUser)
-    user$: Observable<OidcUser>;
+    // @Select(AuthState.getUser)
+    // user$: Observable<OidcUser>;
+
     emailControl = new FormControl('');
 
     private sub: Subscription;
 
     constructor(
-        private router: Router,
         private authService: AuthService
     ) {}
 

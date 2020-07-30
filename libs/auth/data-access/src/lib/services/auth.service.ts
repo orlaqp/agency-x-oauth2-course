@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { EnvService } from '@agency-x/config/frontend';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { map } from 'rxjs/operators';
+import { OidcUser } from '../models/oidc-user.model';
 
 @Injectable({
     providedIn: 'root',
@@ -10,6 +12,10 @@ export class AuthService {
 
     isAuthenticated$ = this.oidcSecurityService.isAuthenticated$;
     userData$ = this.oidcSecurityService.userData$;
+
+    oidcUser$ = this.userData$.pipe(
+        map(data => new OidcUser(data))
+    );
 
     constructor(private router: Router, private envService: EnvService, private oidcSecurityService: OidcSecurityService) {
         
@@ -24,6 +30,8 @@ export class AuthService {
                 }
             }
             if (isAuthenticated) {
+                debugger;
+                const token = this.oidcSecurityService.getToken();
                 this.navigateToStoredEndpoint();
             }
         });
