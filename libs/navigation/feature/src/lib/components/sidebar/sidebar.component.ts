@@ -20,7 +20,9 @@ export class SidebarComponent implements OnInit {
     profileItem = { id: 'profile', icon: 'portrait', text: 'Profile', route: '/home/profile' };
 
     addActions = [
-        {  }
+        { id: 'addCustomer', icon: 'people', text: 'Client', route: '/home/clients/add' },
+        { id: 'addPayment', icon: 'attach_money', text: 'Payment', route: '/home/payments/add' },
+        { id: 'addAppointment', icon: 'insert_invitation', text: 'Appointment', route: '/home/calendar/add' }
     ]
 
   constructor(private router: Router) { }

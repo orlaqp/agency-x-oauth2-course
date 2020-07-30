@@ -1,9 +1,9 @@
-import { IActivity, OidcUser } from '@agency-x/auth/data-access';
+import { IActivity, OidcUser } from '../interfaces';
 
 export class ViewDashboardActivity implements IActivity {
     
     isAllowed(user: OidcUser): boolean {
-        throw new Error('Method not implemented.');
+        return false;
     }
 
 }

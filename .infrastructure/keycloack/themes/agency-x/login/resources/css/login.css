@@ -1,5 +1,5 @@
 .login-pf body {
-    background: linear-gradient(to bottom, rgba(255, 202, 40, 0.95), rgba(255, 111, 0, 0.95)), url(../img/world_travel.png);
+    background: url("../img/keycloak-bg.png") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
 }

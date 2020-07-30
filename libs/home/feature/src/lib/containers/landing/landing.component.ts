@@ -1,11 +1,10 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Select } from '@ngxs/store';
-import { AuthState, OidcUser, AuthService } from '@agency-x/auth/data-access';
+import { AuthState, AuthService } from '@agency-x/auth/data-access';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
-
+import { OidcUser } from '@agency-x/activities';
 
 @Component({
     selector: 'agency-x-landing',
