@@ -1,9 +1,8 @@
-import { State, Action, Selector, StateContext, Store } from '@ngxs/store';
-import { UpdateUserAction } from './auth.actions';
 import { OidcUser } from '@agency-x/auth/data-access';
 import { Injectable } from '@angular/core';
-import { OidcSecurityService, EventTypes, PublicEventsService } from 'angular-auth-oidc-client';
-import { filter } from 'rxjs/operators';
+import { Action, Selector, State, StateContext, Store } from '@ngxs/store';
+import { OidcSecurityService, PublicEventsService } from 'angular-auth-oidc-client';
+import { UpdateUserAction } from './auth.actions';
 
 export interface AuthStateModel {
     user: OidcUser;

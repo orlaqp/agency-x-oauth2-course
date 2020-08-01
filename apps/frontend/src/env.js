@@ -67,7 +67,8 @@
     useRefreshToken: true,
     logLevel: 1,
     locale: 'en',
-    postLogoutRedirectUri: `${window.location.origin}/unauthorized`
+    postLogoutRedirectUri: `${window.location.origin}/unauthorized`,
+    autoUserinfo: false
   }
 
   window.__env = {
