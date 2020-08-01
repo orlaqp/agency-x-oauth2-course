@@ -26,7 +26,14 @@ export class AuthService {
     }
 
     constructor(private router: Router, private envService: EnvService, private oidcSecurityService: OidcSecurityService) {
-        this.oidcUser$.subscribe(console.log);
+        this.oidcUser$.subscribe(u => {
+            console.log(u);
+        });
+
+        oidcSecurityService.userData$.subscribe(u => {
+            debugger;
+            console.log(u);
+        });
     }
 
     checkAuth() {
