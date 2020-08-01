@@ -60,7 +60,7 @@
     stsServer: 'http://localhost:8080/auth/realms/agency-x',
     redirectUrl: window.location.origin,
     // postLogoutRedirectUri: window.location.origin,
-    clientId: 'web-app',
+    clientId: 'web_app',
     scope: 'openid profile email phone offline_access',
     responseType: 'code',
     silentRenew: true,

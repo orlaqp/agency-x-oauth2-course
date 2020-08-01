@@ -2,38 +2,30 @@ import { EnvService } from '@agency-x/config/frontend';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { OidcUser } from '../models/oidc-user.model';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
+    private oidcUserSubject = new BehaviorSubject<OidcUser>(null);
+    oidcUser$ = this.oidcUserSubject.asObservable();
 
     isAuthenticated$ = this.oidcSecurityService.isAuthenticated$;
-    // userData$ = this.oidcSecurityService.userData$;
-
-    oidcUser$ = this.oidcSecurityService.isAuthenticated$.pipe(
-        map(isAuth => isAuth ? this.getOidcUser() : null)
-    );
-    // oidcUser$ = this.userData$.pipe(
-    //     map(data => new OidcUser(data))
-    // );
-
-    private getOidcUser() {
-        const data = this.parseJwt(this.oidcSecurityService.getToken());
-        return new OidcUser(data);
-    }
 
     constructor(private router: Router, private envService: EnvService, private oidcSecurityService: OidcSecurityService) {
-        this.oidcUser$.subscribe(u => {
-            console.log(u);
-        });
+        this.oidcSecurityService.userData$.pipe(
+            tap(u => {
+                let user: OidcUser;
 
-        oidcSecurityService.userData$.subscribe(u => {
-            debugger;
-            console.log(u);
-        });
+                if (u)
+                    user = new OidcUser(u, this.envService.oidcConfig.clientId);
+
+                this.oidcUserSubject.next(user);
+            })
+        ).subscribe();
     }
 
     checkAuth() {
@@ -45,10 +37,6 @@ export class AuthService {
                 }
             }
             if (isAuthenticated) {
-                debugger;
-                const token = this.oidcSecurityService.getToken();
-                const tokenObj = this.parseJwt(token);
-
                 this.navigateToStoredEndpoint();
             }
         });
@@ -102,13 +90,13 @@ export class AuthService {
         }
     }
 
-    private parseJwt (token) {
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        }).join(''));
+    // private parseJwt (token) {
+    //     const base64Url = token.split('.')[1];
+    //     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    //     const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+    //         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    //     }).join(''));
     
-        return JSON.parse(jsonPayload);
-    };
+    //     return JSON.parse(jsonPayload);
+    // };
 }

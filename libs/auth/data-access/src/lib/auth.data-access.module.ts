@@ -1,15 +1,16 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { AngularMaterialModule } from '@agency-x/angular-material';
 import { CommonModule } from '@angular/common';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
-import { AuthState } from './auth/auth.state';
 import {
     AuthModule,
     EventTypes,
     OidcConfigService,
-    PublicEventsService,
+    PublicEventsService
 } from 'angular-auth-oidc-client';
 import { filter } from 'rxjs/operators';
-import { AuthService } from './services/auth.service';
+import { AuthState } from './auth/auth.state';
+import { UnauthorizeBottomSheetComponent } from './components/unauthorize-bottom-sheet/unauthorize-bottom-sheet.component';
 
 const w = window || {};
 const browserEnv = w['__env'] || {};
@@ -19,27 +20,25 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    AuthModule.forRoot(),
-    NgxsModule.forFeature([AuthState])
-  ],
-  declarations: [],
-  providers: [
-    OidcConfigService,
-    {
-        provide: APP_INITIALIZER,
-        useFactory: configureAuth,
-        deps: [OidcConfigService],
-        multi: true,
-    },
-],
+    imports: [
+        CommonModule,
+        AuthModule.forRoot(),
+        NgxsModule.forFeature([AuthState]),
+        AngularMaterialModule,
+    ],
+    declarations: [UnauthorizeBottomSheetComponent],
+    providers: [
+        OidcConfigService,
+        {
+            provide: APP_INITIALIZER,
+            useFactory: configureAuth,
+            deps: [OidcConfigService],
+            multi: true,
+        },
+    ],
 })
 export class AuthDataAccessModule {
-    constructor(
-        private readonly eventService: PublicEventsService,
-        private readonly authService: AuthService
-    ) {
+    constructor(private readonly eventService: PublicEventsService) {
         this.eventService
             .registerForEvents()
             .pipe(

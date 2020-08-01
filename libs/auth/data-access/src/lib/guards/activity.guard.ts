@@ -1,16 +1,19 @@
 import { Injectable, Injector } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+import { UnauthorizeBottomSheetComponent } from '../components/unauthorize-bottom-sheet/unauthorize-bottom-sheet.component';
 import { ActivityCtor, IActivity } from '../definitions';
 import { AuthService } from '../services/auth.service';
-import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class ActivityGuard implements CanActivate {
 
     constructor(
         private injector: Injector,
-        private authService: AuthService
+        private authService: AuthService,
+        private bottomSheet: MatBottomSheet
     ) {
         
     }
@@ -28,13 +31,14 @@ export class ActivityGuard implements CanActivate {
 
         if (!activityInstance) console.error(`An activity instance could be created for: ${Activity.name}`)
         
-        // return activityInstance.isAllowed()
         return this.authService.oidcUser$.pipe(
-            map(u => {
-                debugger;
-                return activityInstance.isAllowed(u)
-            })
+            map(u => activityInstance.isAllowed(u)),
+            tap(authorized => !authorized && this.openBottomSheet())
         )
+    }
+
+    private openBottomSheet(): void {
+        this.bottomSheet.open(UnauthorizeBottomSheetComponent);
     }
 
 }

@@ -33,7 +33,7 @@ export interface IOidcUser {
 }
 
 export interface ResourceAccess {
-    "web-app": WebApp;
+    web_app: WebApp;
 }
 
 export interface WebApp {
@@ -41,7 +41,5 @@ export interface WebApp {
 }
 
 export interface RolePermissions {
-    admin:    Permission[];
-    manager:  Permission[];
-    employee: Permission[];
+    [role: string]:    Permission[];
 }
