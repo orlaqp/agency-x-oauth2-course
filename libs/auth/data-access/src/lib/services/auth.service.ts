@@ -73,7 +73,7 @@ export class AuthService {
     }
 
     private navigateToStoredEndpoint() {
-        const path = this.getRedirect();
+        const path = this.getRedirect() || '/';
 
         this.removeRedirect();
 

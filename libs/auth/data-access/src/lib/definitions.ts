@@ -4,7 +4,9 @@ export type ActivityCtor = new (...args: any[]) => IActivity
 
 export interface IActivity {
     // isAllowed(user: OidcUser): boolean;
-    permissions?: Permission[];
+    can?: Permission;
+    canAny?: Permission[];
+    canAll?: Permission[];
 }
 
 export interface IOidcUser {

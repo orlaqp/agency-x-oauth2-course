@@ -1,8 +1,9 @@
+import { IActivity } from '@agency-x/auth/data-access';
 import {
-    Component,
-    OnInit,
-    ChangeDetectionStrategy,
-    Input,
+    ChangeDetectionStrategy, Component,
+
+
+    Input, OnInit
 } from '@angular/core';
 
 @Component({
@@ -20,6 +21,9 @@ export class CtaComponent implements OnInit {
 
     @Input()
     imagePath: string;
+
+    @Input()
+    activity: IActivity[];
 
     constructor() {}
 

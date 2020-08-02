@@ -48,6 +48,9 @@
             "@agency-x/dashboard/feature": [
                 "libs/dashboard/feature/src/index.ts"
             ],
+            "@agency-x/dashboard/activities": [
+                "libs/dashboard/feature/src/activities.ts"
+            ],
             "@agency-x/profile/feature": ["libs/profile/feature/src/index.ts"],
             "@agency-x/store": ["libs/store/src/index.ts"],
             "@agency-x/activities": ["libs/activities/src/index.ts"]

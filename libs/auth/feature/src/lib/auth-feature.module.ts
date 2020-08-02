@@ -1,3 +1,4 @@
+import { AngularMaterialModule } from '@agency-x/angular-material';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
@@ -11,6 +12,7 @@ export const authFeatureRoutes: Route[] = [];
 @NgModule({
     imports: [
         CommonModule,
+        AngularMaterialModule,
         RouterModule,
         RouterModule.forChild([
             {
@@ -29,5 +31,8 @@ export const authFeatureRoutes: Route[] = [];
         UnauthorizeBottomSheetComponent,
         IfActivityAllowedDirective,
     ],
+    exports: [
+        IfActivityAllowedDirective
+    ]
 })
 export class AuthFeatureModule {}

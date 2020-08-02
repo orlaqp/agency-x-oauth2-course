@@ -1,13 +1,15 @@
-import { NgModule } from '@angular/core';
+import { AuthFeatureModule } from '@agency-x/auth/feature';
+import { SharedModule } from '@agency-x/shared/shared';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
-import { SharedModule } from '@agency-x/shared/shared';
 
 @NgModule({
     imports: [
         CommonModule,
         SharedModule,
+        AuthFeatureModule,
 
         RouterModule.forChild([
             /* {path: '', pathMatch: 'full', component: InsertYourComponentHere} */

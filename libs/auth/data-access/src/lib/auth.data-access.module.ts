@@ -1,4 +1,3 @@
-import { AngularMaterialModule } from '@agency-x/angular-material';
 import { CommonModule } from '@angular/common';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { NgxsModule } from '@ngxs/store';
@@ -24,7 +23,6 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
         CommonModule,
         AuthModule.forRoot(),
         NgxsModule.forFeature([AuthState]),
-        AngularMaterialModule,
     ],
     declarations: [],
     providers: [
