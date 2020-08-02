@@ -1,8 +1,9 @@
+import { AuthService } from '@agency-x/auth/data-access';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AuthService } from '../services/auth.service';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthorizationGuard implements CanActivate {

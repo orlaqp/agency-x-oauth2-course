@@ -10,7 +10,7 @@ import {
 } from 'angular-auth-oidc-client';
 import { filter } from 'rxjs/operators';
 import { AuthState } from './auth/auth.state';
-import { UnauthorizeBottomSheetComponent } from './components/unauthorize-bottom-sheet/unauthorize-bottom-sheet.component';
+
 
 const w = window || {};
 const browserEnv = w['__env'] || {};
@@ -26,7 +26,7 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
         NgxsModule.forFeature([AuthState]),
         AngularMaterialModule,
     ],
-    declarations: [UnauthorizeBottomSheetComponent],
+    declarations: [],
     providers: [
         OidcConfigService,
         {

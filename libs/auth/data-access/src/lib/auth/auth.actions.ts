@@ -1,4 +1,5 @@
-import { OidcUser } from '@agency-x/auth/data-access';
+import { OidcUser } from '../models/oidc-user.model';
+
 
 export class UpdateUserAction {
   public static readonly type = '[Auth] Change Auth User';

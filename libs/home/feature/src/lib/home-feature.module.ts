@@ -1,6 +1,6 @@
 import { ViewDashboardActivity } from '@agency-x/activities';
 import { AngularMaterialModule } from '@agency-x/angular-material';
-import { ActivityGuard, AuthorizationGuard } from '@agency-x/auth/data-access';
+import { ActivityGuard, AuthorizationGuard } from '@agency-x/auth/feature';
 import { EmailInputModule } from '@agency-x/email-input';
 import { LanguagePickerModule } from '@agency-x/language-picker';
 import { NavigationFeatureModule } from '@agency-x/navigation/feature';

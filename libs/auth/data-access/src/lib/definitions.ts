@@ -1,10 +1,10 @@
-import { OidcUser } from './models/oidc-user.model';
 import { Permission } from './models/permissions.enum';
 
 export type ActivityCtor = new (...args: any[]) => IActivity
 
 export interface IActivity {
-    isAllowed(user: OidcUser): boolean;
+    // isAllowed(user: OidcUser): boolean;
+    permissions?: Permission[];
 }
 
 export interface IOidcUser {

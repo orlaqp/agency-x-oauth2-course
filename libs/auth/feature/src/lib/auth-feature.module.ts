@@ -1,8 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Route } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Route, RouterModule } from '@angular/router';
+import { UnauthorizeBottomSheetComponent } from './components/unauthorize-bottom-sheet/unauthorize-bottom-sheet.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { AutoLoginComponent } from './containers/auto-login/auto-login.component';
+import { IfActivityAllowedDirective } from './directives/if-activity-allowed.directive';
 
 export const authFeatureRoutes: Route[] = [];
 
@@ -21,6 +23,11 @@ export const authFeatureRoutes: Route[] = [];
             { path: 'unauthorized', component: UnauthorizedComponent },
         ]),
     ],
-    declarations: [UnauthorizedComponent, AutoLoginComponent],
+    declarations: [
+        UnauthorizedComponent,
+        AutoLoginComponent,
+        UnauthorizeBottomSheetComponent,
+        IfActivityAllowedDirective,
+    ],
 })
 export class AuthFeatureModule {}
