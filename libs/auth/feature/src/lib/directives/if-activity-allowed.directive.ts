@@ -1,8 +1,6 @@
 import {
     ActivityService,
-    AuthService,
-    IActivity,
-    OidcUser
+    IActivity
 } from '@agency-x/auth/data-access';
 import {
     Directive,
@@ -11,7 +9,8 @@ import {
     TemplateRef,
     ViewContainerRef
 } from '@angular/core';
-import { combineLatest, Subject, Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Directive({
     selector: '[agencyXIfActivityAllowed]',
@@ -29,14 +28,13 @@ export class IfActivityAllowedDirective implements OnDestroy {
     constructor(
         private templateRef: TemplateRef<any>,
         private viewContainer: ViewContainerRef,
-        private authService: AuthService,
         private activityService: ActivityService
     ) {
-        this.sub = combineLatest([
-            this.authService.oidcUser$,
-            this.activitySubject,
-        ]).subscribe(([user, activity]) =>
-            this.checkVisibility(user, activity)
+        this.sub = this.activitySubject.pipe(
+            switchMap(activity => this.activityService.isAllowed$(activity))
+        )
+        .subscribe((allowed) =>
+            this.checkVisibility(allowed)
         );
     }
 
@@ -44,15 +42,11 @@ export class IfActivityAllowedDirective implements OnDestroy {
         if (this.sub) this.sub.unsubscribe();
     }
 
-    private checkVisibility(u: OidcUser, activity: IActivity) {
-        if (!u || !activity) return;
-
-        const can = this.activityService.isAllowed(u, activity);
-
-        if (can && !this.hasView) {
+    private checkVisibility(allowed: boolean) {
+        if (allowed && !this.hasView) {
             this.viewContainer.createEmbeddedView(this.templateRef);
             this.hasView = true;
-        } else if (can && this.hasView) {
+        } else if (allowed && this.hasView) {
             this.viewContainer.clear();
             this.hasView = false;
         }

@@ -2,10 +2,13 @@
 <div>
     <h3 class="mat-subheading-2">{{text}}</h3>
 </div>
-<div *ngIf="activity">
+
+<button mat-raised-button [disabled]="isDisabled$ | async">{{buttonCaption}}</button>
+
+<!-- <div *ngIf="activity">
     <button *agencyXIfActivityAllowed="activity" mat-raised-button>{{buttonCaption}}</button>
 </div>
 <div *ngIf="!activity">
     <button mat-raised-button>{{buttonCaption}}</button>
-</div>
+</div> -->
 

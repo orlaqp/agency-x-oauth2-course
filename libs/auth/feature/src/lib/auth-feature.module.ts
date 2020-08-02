@@ -19,7 +19,6 @@ export const authFeatureRoutes: Route[] = [];
                 path: 'auto-login',
                 pathMatch: 'full',
                 component: AutoLoginComponent,
-                //   , canActivate: [ AuthorizationGuard ]
             },
             { path: 'forbidden', component: UnauthorizedComponent },
             { path: 'unauthorized', component: UnauthorizedComponent },
@@ -32,7 +31,7 @@ export const authFeatureRoutes: Route[] = [];
         IfActivityAllowedDirective,
     ],
     exports: [
-        IfActivityAllowedDirective
+        IfActivityAllowedDirective,
     ]
 })
 export class AuthFeatureModule {}

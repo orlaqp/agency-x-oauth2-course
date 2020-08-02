@@ -3,7 +3,7 @@ import { Injectable, Injector } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { UnauthorizeBottomSheetComponent } from '../components/unauthorize-bottom-sheet/unauthorize-bottom-sheet.component';
 
 
@@ -30,10 +30,9 @@ export class ActivityGuard implements CanActivate {
 
         // if (!activityInstance) console.error(`An activity instance could be created for: ${Activity.name}`)
         
-        return this.authService.oidcUser$.pipe(
-            map(u => this.activityService.isAllowed(u, Activity)),
+        return this.activityService.isAllowed$(Activity).pipe(
             tap(authorized => !authorized && this.openBottomSheet())
-        )
+        );
     }
     // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     //     // throw new Error('Method not implemented.');

@@ -1,27 +1,36 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { IActivity } from '../definitions';
 import { OidcUser } from '../models/oidc-user.model';
+import { AuthService } from './auth.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ActivityService {
-    constructor() {}
+    constructor(private authService: AuthService) {}
 
-    isAllowed(u: OidcUser, Activity: IActivity): boolean {
-        return this.checkActivity(u, Activity);
+    isAllowed$(Activity: IActivity): Observable<boolean> {
+        if (!Activity) return of(true);
+        
+        return this.authService.oidcUser$.pipe(
+            map(user => this.checkActivity(user, Activity))
+        );
     }
 
-    private checkActivity(u:OidcUser, a: IActivity): boolean {
-        if (a.can && !u.can(a.can)) {
+    private checkActivity(user: OidcUser, activity: IActivity): boolean {
+        if (!activity) return false;
+        
+        if (activity.can && !user.can(activity.can)) {
             return false;
         }
 
-        if (a.canAny && !u.canAny(a.canAny)) {
+        if (activity.canAny && !user.canAny(activity.canAny)) {
             return false;
         }
 
-        if (a.canAll && !u.canAll(a.canAll)) {
+        if (activity.canAll && !user.canAll(activity.canAll)) {
             return false;
         }
 
