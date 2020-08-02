@@ -1,9 +1,10 @@
 export enum Permission {
-    ViewDashboard = 'view-dashboard',
+    DashboardView = 'view-dashboard',
     ManageAccount = 'manage-account',
     ManageClients = 'manage-clients',
     ManagePayments = 'manage-payments',
-	AddClient = 'add-client',
+    AddClient = 'add-client',
     EditClient = 'edit-client',
-    AddPayment = 'add-payment'
+    AddPayment = 'add-payment',
+    DashboardLayout = "DashboardLayout"
 }

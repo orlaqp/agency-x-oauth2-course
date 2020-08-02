@@ -1,7 +1,6 @@
-// import { ViewDashboardActivity } from '@agency-x/activities';
 import { AngularMaterialModule } from '@agency-x/angular-material';
 import { ActivityGuard, AuthorizationGuard } from '@agency-x/auth/feature';
-import { ViewDashboardActivity } from '@agency-x/dashboard/activities';
+import { DashboardActivities } from '@agency-x/dashboard/activities';
 import { EmailInputModule } from '@agency-x/email-input';
 import { LanguagePickerModule } from '@agency-x/language-picker';
 import { NavigationFeatureModule } from '@agency-x/navigation/feature';
@@ -34,7 +33,7 @@ import { LandingComponent } from './containers/landing/landing.component';
                     {
                         path: 'dashboard',
                         data: {
-                            activity: ViewDashboardActivity
+                            activity: DashboardActivities.View
                         },
                         canActivate: [ActivityGuard],
                         loadChildren: () =>

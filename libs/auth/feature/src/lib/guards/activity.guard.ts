@@ -19,7 +19,6 @@ export class ActivityGuard implements CanActivate {
     ) { }
     
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        // throw new Error('Method not implemented.');
         const Activity = route.data['activity'] as IActivity;
 
         if (!Activity) console.warn(`
