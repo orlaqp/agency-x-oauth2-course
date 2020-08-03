@@ -6,6 +6,7 @@ import { UnauthorizeBottomSheetComponent } from './components/unauthorize-bottom
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { AutoLoginComponent } from './containers/auto-login/auto-login.component';
 import { IfActivityAllowedDirective } from './directives/if-activity-allowed.directive';
+import { IsActivityAllowedDirective } from './directives/is-activity-allowed.directive';
 
 export const authFeatureRoutes: Route[] = [];
 
@@ -29,9 +30,11 @@ export const authFeatureRoutes: Route[] = [];
         AutoLoginComponent,
         UnauthorizeBottomSheetComponent,
         IfActivityAllowedDirective,
+        IsActivityAllowedDirective,
     ],
     exports: [
         IfActivityAllowedDirective,
+        IsActivityAllowedDirective
     ]
 })
 export class AuthFeatureModule {}

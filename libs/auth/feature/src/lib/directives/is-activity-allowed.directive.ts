@@ -1,0 +1,47 @@
+import { ActivityService, IActivity } from '@agency-x/auth/data-access';
+import { AfterViewInit, Directive, ElementRef, Input, OnDestroy, Renderer2 } from '@angular/core';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
+
+@Directive({
+    selector: '[agencyXIsActivityAllowed]',
+})
+export class IsActivityAllowedDirective implements AfterViewInit, OnDestroy {
+    @Input()
+    set agencyXIsActivityAllowed(activity: IActivity) {
+        this.activitySubject.next(activity);
+    }
+
+    private activitySubject = new BehaviorSubject<IActivity>(null);
+    private sub: Subscription;
+
+    constructor(
+        private el: ElementRef,
+        private renderer: Renderer2,
+        private activityService: ActivityService
+    ) {}
+
+    ngOnDestroy(): void {
+        if (this.sub) this.sub.unsubscribe();
+    }
+
+    ngAfterViewInit(): void {
+        this.sub = this.activitySubject.pipe(
+            switchMap(a => this.activityService.isAllowed$(a)),
+            tap(allowed => {
+                // debugger;
+                this.el.nativeElement.disabled = !allowed;
+                // this.renderer.setProperty(this.el.nativeElement, 'disabled', true);
+                // this.renderer.setAttribute(this.el.nativeElement, 'disabled', '');
+                
+                if (allowed) {
+                    // this.el.nativeElement.classList.add('disabled')
+                    this.renderer.removeClass(this.el.nativeElement, 'mat-button-disabled');
+                } else {
+                    // this.el.nativeElement.classList.remove('disabled')
+                    this.renderer.addClass(this.el.nativeElement, 'mat-button-disabled');
+                }
+            })
+        ).subscribe();
+    }
+}

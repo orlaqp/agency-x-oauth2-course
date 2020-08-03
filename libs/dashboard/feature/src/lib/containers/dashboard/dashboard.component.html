@@ -5,10 +5,11 @@
                 text="In progress"
                 buttonCaption="More Details"
                 imagePath="/assets/images/revenue.svg"
-                [activity]="activityService.Layout"
+                [activity]="activityService.View"
             >
             </agency-x-cta>
         </agency-x-widget>
+
     </div>
 
     <div *agencyXIfActivityAllowed="activityService.View" class="new-customers">
