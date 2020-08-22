@@ -1,18 +1,21 @@
-import {
-    State,
-    Action,
-    Selector,
-    StateContext,
-    NgxsOnInit,
-    Store,
-} from '@ngxs/store';
-import { ChangeThemeAction, ChangeLanguageAction } from './shared.actions';
-import { ITheme } from '../..';
 import { EnvService } from '@agency-x/config/frontend';
-import { StyleManagerService } from '../style-manager.service';
+import { Injectable } from '@angular/core';
+import {
+    Action,
+
+
+    NgxsOnInit, Selector, State,
+
+
+    StateContext,
+
+    Store
+} from '@ngxs/store';
+import { ITheme } from '../..';
 import { ILanguage } from '../interfaces';
 import { LanguageManagerService } from '../language-manager.service';
-import { Injectable } from '@angular/core';
+import { StyleManagerService } from '../style-manager.service';
+import { ChangeLanguageAction, ChangeThemeAction } from './shared.actions';
 
 export interface SharedStateModel {
     themes: ITheme[];
@@ -60,6 +63,7 @@ export class SharedState implements NgxsOnInit {
     }
 
     ngxsOnInit(ctx?: StateContext<SharedStateModel>) {
+        debugger;
         const state = ctx.getState();
 
         const themes = state.themes.length

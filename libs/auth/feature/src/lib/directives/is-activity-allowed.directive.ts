@@ -12,6 +12,9 @@ export class IsActivityAllowedDirective implements AfterViewInit, OnDestroy {
         this.activitySubject.next(activity);
     }
 
+    @Input()
+    disableClass = 'mat-button-disabled'
+
     private activitySubject = new BehaviorSubject<IActivity>(null);
     private sub: Subscription;
 
@@ -36,10 +39,10 @@ export class IsActivityAllowedDirective implements AfterViewInit, OnDestroy {
                 
                 if (allowed) {
                     // this.el.nativeElement.classList.add('disabled')
-                    this.renderer.removeClass(this.el.nativeElement, 'mat-button-disabled');
+                    this.renderer.removeClass(this.el.nativeElement, this.disableClass);
                 } else {
                     // this.el.nativeElement.classList.remove('disabled')
-                    this.renderer.addClass(this.el.nativeElement, 'mat-button-disabled');
+                    this.renderer.addClass(this.el.nativeElement, this.disableClass);
                 }
             })
         ).subscribe();

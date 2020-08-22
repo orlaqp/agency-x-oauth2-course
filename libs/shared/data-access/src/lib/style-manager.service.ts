@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
 import { ITheme } from '@agency-x/shared/data-access';
+import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class StyleManagerService {
 
   changeTheme(theme: ITheme) {

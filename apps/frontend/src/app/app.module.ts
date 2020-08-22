@@ -2,7 +2,7 @@ import { AngularMaterialModule } from '@agency-x/angular-material';
 import { AuthDataAccessModule } from '@agency-x/auth/data-access';
 import { AuthFeatureModule } from '@agency-x/auth/feature';
 import { ConfigFrontendModule } from '@agency-x/config/frontend';
-import { SharedModule } from '@agency-x/shared/shared';
+import { SharedModule } from '@agency-x/shared/feature';
 import { StoreModule } from '@agency-x/store';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';

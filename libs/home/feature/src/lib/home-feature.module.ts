@@ -23,8 +23,9 @@ import { LandingComponent } from './containers/landing/landing.component';
         NavigationFeatureModule,
 
         RouterModule.forChild([
+            { path: '', pathMatch: 'full', component: LandingComponent },
             {
-                path: '',
+                path: 'home',
                 // pathMatch: 'full',
                 // redirectTo: '/home/dashboard',
                 component: HomeComponent,

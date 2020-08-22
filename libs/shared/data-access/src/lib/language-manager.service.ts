@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ILanguage } from './interfaces';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class LanguageManagerService {
 
   changeLanguage(lang: ILanguage) {

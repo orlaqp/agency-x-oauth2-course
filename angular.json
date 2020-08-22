@@ -307,29 +307,29 @@
                 }
             }
         },
-        "shared-shared": {
+        "shared-feature": {
             "projectType": "library",
-            "root": "libs/shared/shared",
-            "sourceRoot": "libs/shared/shared/src",
+            "root": "libs/shared/feature",
+            "sourceRoot": "libs/shared/feature/src",
             "prefix": "agency-x",
             "architect": {
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
                         "tsConfig": [
-                            "libs/shared/shared/tsconfig.lib.json",
-                            "libs/shared/shared/tsconfig.spec.json"
+                            "libs/shared/feature/tsconfig.lib.json",
+                            "libs/shared/feature/tsconfig.spec.json"
                         ],
                         "exclude": [
                             "**/node_modules/**",
-                            "!libs/shared/shared/**/*"
+                            "!libs/shared/feature/**/*"
                         ]
                     }
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
                     "options": {
-                        "jestConfig": "libs/shared/shared/jest.config.js",
+                        "jestConfig": "libs/shared/feature/jest.config.js",
                         "passWithNoTests": true
                     }
                 }

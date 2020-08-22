@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
+import { SharedModule } from '@agency-x/shared/feature';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CalendarComponent } from './containers/calendar/calendar.component';
-import { SharedModule } from '@agency-x/shared/shared';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
+import listPlugin from '@fullcalendar/list';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import { CalendarComponent } from './containers/calendar/calendar.component';
 
 FullCalendarModule.registerPlugins([
     dayGridPlugin,
