@@ -1,5 +1,4 @@
-import { DashboardActivitiesService } from '@agency-x/dashboard/activities';
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
     selector: 'agency-x-dashboard',
@@ -7,9 +6,4 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
     styleUrls: ['./dashboard.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardComponent implements OnInit {
-
-    constructor(public activityService: DashboardActivitiesService) {}
-
-    ngOnInit(): void {}
-}
+export class DashboardComponent { }

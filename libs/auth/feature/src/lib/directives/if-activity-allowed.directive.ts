@@ -1,7 +1,4 @@
-import {
-    ActivityService,
-    IActivity
-} from '@agency-x/auth/data-access';
+import { ActivityService } from '@agency-x/auth/data-access';
 import {
     Directive,
     Input,
@@ -17,11 +14,11 @@ import { switchMap } from 'rxjs/operators';
 })
 export class IfActivityAllowedDirective implements OnDestroy {
     @Input()
-    set agencyXIfActivityAllowed(activity: IActivity) {
+    set agencyXIfActivityAllowed(activity: string) {
         this.activitySubject.next(activity);
     }
 
-    private activitySubject = new Subject<IActivity>();
+    private activitySubject = new Subject<string>();
     private hasView = false;
     private sub: Subscription;
 

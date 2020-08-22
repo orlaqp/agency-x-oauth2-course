@@ -1,4 +1,4 @@
-import { ActivityService, IActivity } from '@agency-x/auth/data-access';
+import { ActivityService } from '@agency-x/auth/data-access';
 import {
     ChangeDetectionStrategy, Component,
 
@@ -23,7 +23,7 @@ export class CtaComponent {
     imagePath: string;
 
     @Input()
-    activity: IActivity;
+    activity: string;
 
     // TODO: Explain here the difference between Subject an AsyncSubject
     // async only works with Subject if the async pipe subscribe to the the subject

@@ -71,6 +71,14 @@
       {
         "allow": [],
         "depConstraints": [
+            {
+                "sourceTag": "feature",
+                "onlyDependOnLibsWithTags": ["feature", "data-access"]
+            },
+            {
+                "sourceTag": "data-access",
+                "onlyDependOnLibsWithTags": []
+            },
           {
             "sourceTag": "*",
             "onlyDependOnLibsWithTags": [

@@ -19,61 +19,58 @@
             "implicitDependencies": ["frontend"]
         },
         "home-feature": {
-            "tags": []
+            "tags": ["feature"]
         },
         "theme-picker": {
-            "tags": []
+            "tags": ["feature"]
         },
         "angular-material": {
-            "tags": []
+            "tags": ["ui"]
         },
         "config-frontend": {
-            "tags": []
+            "tags": ["config"]
         },
         "shared-feature": {
-            "tags": []
+            "tags": ["feature"]
         },
         "language-picker": {
-            "tags": []
+            "tags": ["feature"]
         },
         "email-input": {
-            "tags": []
+            "tags": ["feature"]
         },
         "shared-data-access": {
-            "tags": []
+            "tags": ["data-access"]
         },
         "auth-data-access": {
-            "tags": []
+            "tags": ["data-access"]
         },
         "auth-feature": {
-            "tags": []
+            "tags": ["feature"]
         },
         "navigation-feature": {
-            "tags": []
+            "tags": ["feature"]
         },
         "clients-feature": {
-            "tags": []
+            "tags": ["feature"]
         },
         "payments-feature": {
-            "tags": []
+            "tags": ["feature"]
         },
         "calendar-feature": {
-            "tags": []
+            "tags": ["feature"]
         },
         "settings-feature": {
-            "tags": []
+            "tags": ["feature"]
         },
         "dashboard-feature": {
-            "tags": []
+            "tags": ["feature"]
         },
         "profile-feature": {
-            "tags": []
+            "tags": ["feature"]
         },
         "store": {
-            "tags": []
-        },
-        "activities": {
-            "tags": []
+            "tags": ["store"]
         }
     },
     "tasksRunnerOptions": {

@@ -1,0 +1,5 @@
+{ 
+    "admin": ["view-dashboard", "layout-dashboard", "manage-account", "list-clients", "add-client", "edit-client", "delete-client", "add-payment", "void-payment"], 
+    "manager": ["view-dashboard", "add-payment", "void-payment", "add-client", "edit-client", "delete-client", "list-clients"], 
+    "employee": ["add-client", "edit-client", "add-payment"]
+}

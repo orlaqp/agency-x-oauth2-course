@@ -1,14 +1,3 @@
-import { Permission } from './models/permissions.enum';
-
-export type ActivityCtor = new (...args: any[]) => IActivity
-
-export interface IActivity {
-    // isAllowed(user: OidcUser): boolean;
-    can?: Permission;
-    canAny?: Permission[];
-    canAll?: Permission[];
-}
-
 export interface IOidcUser {
     exp:                number;
     iat:                number;
@@ -27,7 +16,7 @@ export interface IOidcUser {
     email_verified:     boolean;
     name:               string;
     groups:             string[];
-    role_permissions:   RolePermissions;
+    role_activities:    RoleActivities;
     preferred_username: string;
     given_name:         string;
     family_name:        string;
@@ -42,6 +31,6 @@ export interface WebApp {
     roles: string[];
 }
 
-export interface RolePermissions {
-    [role: string]:    Permission[];
+export interface RoleActivities {
+    [role: string]:    string[];
 }

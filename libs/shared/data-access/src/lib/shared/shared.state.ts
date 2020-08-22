@@ -63,7 +63,6 @@ export class SharedState implements NgxsOnInit {
     }
 
     ngxsOnInit(ctx?: StateContext<SharedStateModel>) {
-        debugger;
         const state = ctx.getState();
 
         const themes = state.themes.length

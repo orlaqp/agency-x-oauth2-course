@@ -1,17 +1,16 @@
-import { IOidcUser, ResourceAccess, RolePermissions } from '../definitions';
-import { Permission } from './permissions.enum';
+import { IOidcUser, ResourceAccess, RoleActivities } from '../definitions';
 
 
 export class OidcUser implements IOidcUser {
     private roles: string[];
-    private permissions: Permission[];
+    private activities: string[];
     
     constructor(data: IOidcUser, clientId: string) {
         if (!data) throw new Error('user data is missing');
-
+        
         Object.assign(this, data);
         this.roles = this.resource_access[clientId].roles;
-        this.permissions = this.getUserPermissions(this.roles);
+        this.activities = this.getUserActivities(this.roles);
     }
 
     exp: number;
@@ -31,34 +30,26 @@ export class OidcUser implements IOidcUser {
     email_verified: boolean;
     name: string;
     groups: string[];
-    role_permissions: RolePermissions;
+    role_activities: RoleActivities;
     preferred_username: string;
     given_name: string;
     family_name: string;
     email: string;
 
-    public can(permission: Permission): boolean {
-        return this.permissions.includes(permission);
+    public can(activity: string): boolean {
+        return this.activities.includes(activity);
     }
 
-    public canAny(permissions: Permission[]): boolean {
-        return this.permissions.some(p => permissions.includes(p));
-    }
-
-    public canAll(permissions: Permission[]): boolean {
-        return this.permissions.every(p => permissions.includes(p));
-    }
-
-    private getUserPermissions(roles: string[]): Permission[] {
+    private getUserActivities(roles: string[]): any {
         if (!roles) return [];
 
-        const permissionSet = new Set<Permission>();
+        const activitySet = new Set<string>();
 
         roles.forEach(r => {
-            const rolePermissions = this.role_permissions[r];
-            rolePermissions.forEach(p => permissionSet.add(p));
+            const roleActivities = this.role_activities[r];
+            roleActivities.forEach(p => activitySet.add(p));
         });
 
-        return Array.from(permissionSet);
+        return Array.from(activitySet);
     }
 }

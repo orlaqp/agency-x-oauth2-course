@@ -1,4 +1,4 @@
-import { ActivityService, IActivity } from '@agency-x/auth/data-access';
+import { ActivityService } from '@agency-x/auth/data-access';
 import { AfterViewInit, Directive, ElementRef, Input, OnDestroy, Renderer2 } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
@@ -8,14 +8,14 @@ import { switchMap, tap } from 'rxjs/operators';
 })
 export class IsActivityAllowedDirective implements AfterViewInit, OnDestroy {
     @Input()
-    set agencyXIsActivityAllowed(activity: IActivity) {
+    set agencyXIsActivityAllowed(activity: string) {
         this.activitySubject.next(activity);
     }
 
     @Input()
     disableClass = 'mat-button-disabled'
 
-    private activitySubject = new BehaviorSubject<IActivity>(null);
+    private activitySubject = new BehaviorSubject<string>(null);
     private sub: Subscription;
 
     constructor(
