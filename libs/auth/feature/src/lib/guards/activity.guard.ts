@@ -15,14 +15,14 @@ export class ActivityGuard implements CanActivate {
     ) { }
     
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-        const Activity = route.data['activity'] as string;
+        const activity = route.data['activity'] as string;
 
-        if (!Activity) console.warn(`
+        if (!activity) console.warn(`
             Activity guard has been used in a route that does not provide
             an Activity as part of its route data: ${route.url}
         `);
 
-        return this.activityService.isAllowed$(Activity).pipe(
+        return this.activityService.isAllowed$(activity).pipe(
             tap(authorized => !authorized && this.openBottomSheet())
         );
     }

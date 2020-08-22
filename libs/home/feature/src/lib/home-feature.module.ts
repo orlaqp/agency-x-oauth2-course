@@ -33,7 +33,7 @@ import { LandingComponent } from './containers/landing/landing.component';
                     {
                         path: 'dashboard',
                         data: {
-                            activity: "ViewDashboard"
+                            activity: "view-dashboard"
                         },
                         canActivate: [ActivityGuard],
                         loadChildren: () =>

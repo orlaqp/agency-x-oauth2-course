@@ -5,14 +5,14 @@
                 text="In progress"
                 buttonCaption="More Details"
                 imagePath="/assets/images/revenue.svg"
-                [activity]="activityService.Layout"
+                activity="layout-dashboard"
             >
             </agency-x-cta>
         </agency-x-widget>
 
     </div>
 
-    <div *agencyXIfActivityAllowed="activityService.View" class="new-customers">
+    <div *agencyXIfActivityAllowed="'view-dashboard'" class="new-customers">
         <agency-x-widget title="New Customers">
             <div class="mat-subheading-1">In progress</div>
         </agency-x-widget>

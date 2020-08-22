@@ -13,7 +13,6 @@ export class AuthorizationGuard implements CanActivate {
     ) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-        // return checkAuth() again should be possible
         return this.authService.isAuthenticated$.pipe(
             map((isAuthorized: boolean) => {
                 console.log('AuthorizationGuard, canActivate isAuthorized: ' + isAuthorized);
