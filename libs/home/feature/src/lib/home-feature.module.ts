@@ -1,5 +1,6 @@
 import { AngularMaterialModule } from '@agency-x/angular-material';
 import { ActivityGuard, AuthorizationGuard } from '@agency-x/auth/feature';
+import { DashboardActivity } from '@agency-x/dashboard/activities';
 import { EmailInputModule } from '@agency-x/email-input';
 import { LanguagePickerModule } from '@agency-x/language-picker';
 import { NavigationFeatureModule } from '@agency-x/navigation/feature';
@@ -33,8 +34,8 @@ import { LandingComponent } from './containers/landing/landing.component';
                     {
                         path: 'dashboard',
                         data: {
-                            activity: "view-dashboard"
-                        },
+                            activity: DashboardActivity.View
+                        }, 
                         canActivate: [ActivityGuard],
                         loadChildren: () =>
                             import('@agency-x/dashboard/feature').then(

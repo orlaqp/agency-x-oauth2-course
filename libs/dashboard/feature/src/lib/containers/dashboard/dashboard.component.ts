@@ -1,3 +1,4 @@
+import { DashboardActivity } from '@agency-x/dashboard/activities';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
@@ -6,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     styleUrls: ['./dashboard.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DashboardComponent { }
+export class DashboardComponent {
+    dashboardActivity = DashboardActivity;
+}
