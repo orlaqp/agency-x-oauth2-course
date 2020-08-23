@@ -73,7 +73,7 @@
         "depConstraints": [
             {
                 "sourceTag": "feature",
-                "onlyDependOnLibsWithTags": ["feature", "data-access"]
+                "onlyDependOnLibsWithTags": ["feature", "data-access", "ui"]
             },
             {
                 "sourceTag": "data-access",

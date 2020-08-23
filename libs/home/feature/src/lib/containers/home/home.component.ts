@@ -1,5 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { AuthService } from '@agency-x/auth/data-access';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'agency-x-home',
@@ -7,16 +6,4 @@ import { AuthService } from '@agency-x/auth/data-access';
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit {
-    showFiller = false;
-
-  constructor(private authService: AuthService) { }
-
-  ngOnInit(): void {
-  }
-
-  logoff() {
-    this.authService.logoff();
-  }
-
-}
+export class HomeComponent { }

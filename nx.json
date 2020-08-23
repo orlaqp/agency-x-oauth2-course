@@ -42,12 +42,6 @@
         "shared-data-access": {
             "tags": ["data-access"]
         },
-        "auth-data-access": {
-            "tags": ["data-access"]
-        },
-        "auth-feature": {
-            "tags": ["feature"]
-        },
         "navigation-feature": {
             "tags": ["feature"]
         },

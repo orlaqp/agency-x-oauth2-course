@@ -1,5 +1,4 @@
 import { AngularMaterialModule } from '@agency-x/angular-material';
-import { AuthFeatureModule } from '@agency-x/auth/feature';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AngularTiltModule } from 'angular-tilt';
@@ -9,7 +8,7 @@ import { UnderConstructionComponent } from './components/under-construction/unde
 import { WidgetComponent } from './components/widget/widget.component';
 
 @NgModule({
-  imports: [CommonModule, AngularMaterialModule, AngularTiltModule, AuthFeatureModule],
+  imports: [CommonModule, AngularMaterialModule, AngularTiltModule],
   declarations: [NotFoundComponent, UnderConstructionComponent, WidgetComponent, CtaComponent],
   exports: [NotFoundComponent, UnderConstructionComponent, WidgetComponent, CtaComponent]
 })

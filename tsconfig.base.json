@@ -28,10 +28,6 @@
             "@agency-x/shared/data-access": [
                 "libs/shared/data-access/src/index.ts"
             ],
-            "@agency-x/auth/data-access": [
-                "libs/auth/data-access/src/index.ts"
-            ],
-            "@agency-x/auth/feature": ["libs/auth/feature/src/index.ts"],
             "@agency-x/navigation/feature": [
                 "libs/navigation/feature/src/index.ts"
             ],

@@ -1,5 +1,4 @@
 import { AngularMaterialModule } from '@agency-x/angular-material';
-import { ActivityGuard, AuthorizationGuard } from '@agency-x/auth/feature';
 import { DashboardActivity } from '@agency-x/dashboard/activities';
 import { EmailInputModule } from '@agency-x/email-input';
 import { LanguagePickerModule } from '@agency-x/language-picker';
@@ -29,14 +28,12 @@ import { LandingComponent } from './containers/landing/landing.component';
                 // pathMatch: 'full',
                 // redirectTo: '/home/dashboard',
                 component: HomeComponent,
-                canActivate: [AuthorizationGuard],
                 children: [
                     {
                         path: 'dashboard',
                         data: {
                             activity: DashboardActivity.View
                         }, 
-                        canActivate: [ActivityGuard],
                         loadChildren: () =>
                             import('@agency-x/dashboard/feature').then(
                                 (module) => module.DashboardFeatureModule
