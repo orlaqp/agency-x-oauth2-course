@@ -44,32 +44,8 @@
     {
       name: "Spanish",
       href: "http://localhost:4300"
-    },
-    // {
-    //   name: "English",
-    //   href: "http://localhost:8080/frontend-en",
-    //   isDefault: true
-    // },
-    // {
-    //   name: "Spanish",
-    //   href: "http://localhost:8080/frontend-es"
-    // },
+    }
   ];
-
-  oidcConfig = {
-    stsServer: 'http://localhost:8080/auth/realms/agency-x',
-    redirectUrl: window.location.origin,
-    // postLogoutRedirectUri: window.location.origin,
-    clientId: 'web_app',
-    scope: 'openid profile email phone offline_access',
-    responseType: 'code',
-    silentRenew: true,
-    useRefreshToken: true,
-    logLevel: 1,
-    locale: 'en',
-    postLogoutRedirectUri: `${window.location.origin}/unauthorized`,
-    autoUserinfo: false
-  }
 
   window.__env = {
     debugMode: true,
