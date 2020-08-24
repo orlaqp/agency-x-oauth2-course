@@ -21,8 +21,6 @@ import { LandingComponent } from './containers/landing/landing.component';
             { path: '', pathMatch: 'full', component: LandingComponent },
             {
                 path: 'home',
-                // pathMatch: 'full',
-                // redirectTo: '/home/dashboard',
                 component: HomeComponent,
                 children: [
                     {
