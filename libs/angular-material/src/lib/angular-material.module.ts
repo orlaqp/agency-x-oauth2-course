@@ -1,5 +1,4 @@
 import { OverlayModule } from '@angular/cdk/overlay';
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
@@ -14,18 +13,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 @NgModule({
-    imports: [
-        CommonModule,
-        // OverlayModule,
-        // FlexLayoutModule,
-        // MatMenuModule,
-        // MatIconModule,
-        // MatButtonModule,
-        // MatGridListModule,
-        // MatSidenavModule,
-        // MatCardModule,
-        // MatBottomSheetModule,
-    ],
     exports: [
         OverlayModule,
         FlexLayoutModule,
