@@ -1,5 +1,4 @@
 import { AngularMaterialModule } from '@agency-x/angular-material';
-import { DashboardActivity } from '@agency-x/dashboard/activities';
 import { LanguagePickerModule } from '@agency-x/language-picker';
 import { NavigationFeatureModule } from '@agency-x/navigation/feature';
 import { ThemePickerModule } from '@agency-x/theme-picker';
@@ -25,9 +24,6 @@ import { LandingComponent } from './containers/landing/landing.component';
                 children: [
                     {
                         path: 'dashboard',
-                        data: {
-                            activity: DashboardActivity.View
-                        }, 
                         loadChildren: () =>
                             import('@agency-x/dashboard/feature').then(
                                 (module) => module.DashboardFeatureModule
