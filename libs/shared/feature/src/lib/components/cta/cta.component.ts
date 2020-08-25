@@ -15,7 +15,4 @@ export class CtaComponent {
 
     @Input()
     imagePath: string;
-
-    @Input()
-    activity: string;
 }
