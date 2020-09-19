@@ -51,7 +51,6 @@
     debugMode: true,
     themes: themes,
     languages: languages,
-    oidcConfig: oidcConfig
   };
 
 })(this);
