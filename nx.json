@@ -65,6 +65,9 @@
         },
         "store": {
             "tags": ["store"]
+        },
+        "auth-data-access": {
+            "tags": []
         }
     },
     "tasksRunnerOptions": {

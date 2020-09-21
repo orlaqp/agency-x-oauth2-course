@@ -44,11 +44,10 @@
             "@agency-x/dashboard/feature": [
                 "libs/dashboard/feature/src/index.ts"
             ],
-            "@agency-x/dashboard/activities": [
-                "libs/dashboard/activities.ts"
-            ],
+            "@agency-x/dashboard/activities": ["libs/dashboard/activities.ts"],
             "@agency-x/profile/feature": ["libs/profile/feature/src/index.ts"],
-            "@agency-x/store": ["libs/store/src/index.ts"]
+            "@agency-x/store": ["libs/store/src/index.ts"],
+            "@agency-x/auth/data-access": ["libs/auth/data-access/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

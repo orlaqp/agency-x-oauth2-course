@@ -47,10 +47,24 @@
     }
   ];
 
+  var oidcConfig = {
+    stsServer: 'http://localhost:8080/auth/realms/Agency-X',
+    redirectUrl: window.location.origin,
+    postLogoutRedirectUri: window.location.origin,
+    clientId: 'web_app',
+    scope: 'openid profile email',
+    responseType: 'code',
+    silentRenew: true,
+    silentRenewUrl: `${window.location.origin}/silent-renew.html`,
+    logLevel: 1,
+  }
+
+
   window.__env = {
     debugMode: true,
-    themes: themes,
-    languages: languages,
+    themes,
+    languages,
+    oidcConfig
   };
 
 })(this);

@@ -1,4 +1,4 @@
-import { ILanguage, ITheme } from '@agency-x/shared/data-access';
+import { ILanguage, IOidcConfig, ITheme } from '@agency-x/shared/data-access';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -6,4 +6,5 @@ export class EnvService {
   debugMode = true;
   themes: ITheme[] = [];
   languages: ILanguage[];
+  oidcConfig: IOidcConfig;
 }
