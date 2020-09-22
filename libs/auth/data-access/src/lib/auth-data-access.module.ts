@@ -4,7 +4,6 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { AuthModule, OidcConfigService } from 'angular-auth-oidc-client';
 
 export function configureAuth(oidcConfigService: OidcConfigService, envService: EnvService) {
-    debugger;
     return () => oidcConfigService.withConfig(envService.oidcConfig);
 }
 

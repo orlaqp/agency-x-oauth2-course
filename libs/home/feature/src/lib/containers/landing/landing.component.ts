@@ -1,5 +1,5 @@
+import { AuthService } from '@agency-x/auth/data-access';
 import { Component } from '@angular/core';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
 
 @Component({
     selector: 'agency-x-landing',
@@ -8,13 +8,9 @@ import { OidcSecurityService } from 'angular-auth-oidc-client';
 })
 export class LandingComponent {
 
-    constructor(public oidcSecurityService: OidcSecurityService) {}
+    constructor(private authService: AuthService) {}
 
     login() {
-        this.oidcSecurityService.authorize();
+        this.authService.authorize();
     }
-
-    // logout() {
-    //     this.oidcSecurityService.logoff();
-    // }
 }
