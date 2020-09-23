@@ -57,6 +57,7 @@
     silentRenew: true,
     silentRenewUrl: `${window.location.origin}/silent-renew.html`,
     logLevel: 1,
+    autoUserinfo: false
   }
 
 
