@@ -14,7 +14,7 @@ export class AuthService {
     constructor(public oidcSecurityService: OidcSecurityService) {
         this.oidcSecurityService.checkAuth().subscribe((auth) => console.log('is authenticated', auth));
 
-        this.oidcSecurityService.userData$.subscribe(u => this.userSubject.next(new User(u)));
+        this.oidcSecurityService.userData$.subscribe(u => this.userSubject.next(!!u ? new User(u) : null));
     }
 
     authorize() {

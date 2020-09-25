@@ -1,4 +1,5 @@
 import { AngularMaterialModule } from '@agency-x/angular-material';
+import { RoleGuard } from '@agency-x/auth/data-access';
 import { LanguagePickerModule } from '@agency-x/language-picker';
 import { NavigationFeatureModule } from '@agency-x/navigation/feature';
 import { ThemePickerModule } from '@agency-x/theme-picker';
@@ -28,6 +29,10 @@ import { LandingComponent } from './containers/landing/landing.component';
                             import('@agency-x/dashboard/feature').then(
                                 (module) => module.DashboardFeatureModule
                             ),
+                        canActivate: [RoleGuard],
+                        data: {
+                            role: "Manager"
+                        }
                     },
                     {
                         path: 'clients',

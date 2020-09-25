@@ -68,6 +68,9 @@
         },
         "auth-data-access": {
             "tags": []
+        },
+        "auth-feature": {
+            "tags": []
         }
     },
     "tasksRunnerOptions": {
