@@ -10,6 +10,10 @@ export interface IRealmAccess {
     roles: string[];
 }
 
+export interface IRoleActivities {
+    [role: string]: string[];
+}
+
 export interface IUserData {
     exp: number;
     iat: number;
@@ -27,6 +31,7 @@ export interface IUserData {
     resource_access: IResourceAccess;
     email_verified: boolean;
     realm_access: IRealmAccess;
+    role_activities: IRoleActivities;
     name: string;
     preferred_username: string;
     given_name: string;
@@ -46,8 +51,15 @@ export interface IUserData {
 }
 
 export class User {
-    constructor(private userData: IUserData) {}
+    private _activities: string[];
 
+    constructor(private userData: IUserData) {
+        this._activities = this._getActivities(
+            userData.realm_access.roles,
+            userData.role_activities
+        );
+    }
+    
     public get name() {
         return this.userData.name;
     }
@@ -60,5 +72,25 @@ export class User {
         if (!this.userData.realm_access.roles || !role) return false;
 
         return this.userData.realm_access.roles.includes(role);
+    }
+
+    public can(activity: string): boolean {
+        return this._activities.includes(activity);
+    }
+
+    private _getActivities(roles: string[], role_activities: IRoleActivities): string[] {
+        if (!roles) return [];
+
+        const activitySet = new Set<string>();
+
+        roles.forEach(r => {
+            const activities = role_activities[r.toLowerCase()];
+
+            if (!activities) return;
+
+            activities.forEach(a => activitySet.add(a));
+        });
+
+        return Array.from(activitySet);
     }
 }
