@@ -7,9 +7,8 @@ import {
     UrlTree
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { AuthService } from '../..';
-import { User } from '../models/user';
 
 @Injectable({
     providedIn: 'root',
@@ -27,8 +26,7 @@ export class ActivityGuard implements CanActivate {
         | UrlTree {
         const activity = next.data['activity'];
 
-        return this.authService.userData$.pipe(
-            map((u: User) => u?.can(activity)),
+        return this.authService.can(activity).pipe(
             tap(
                 (authorized) =>
                     !authorized && this.router.navigate(['/unauthorized'])
