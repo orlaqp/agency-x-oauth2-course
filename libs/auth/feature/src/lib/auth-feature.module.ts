@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
-import { AxCanDirective } from './directives/ax-can.directive';
+import { AxIfActivityDirective } from './directives/ax-if-activity.directive';
 
 export const authFeatureRoutes: Route[] = [
     {
@@ -18,7 +18,7 @@ export const authFeatureRoutes: Route[] = [
         RouterModule.forChild(authFeatureRoutes),
         SharedModule
     ],
-    declarations: [UnauthorizedComponent, AxCanDirective],
-    exports: [AxCanDirective]
+    declarations: [UnauthorizedComponent, AxIfActivityDirective],
+    exports: [AxIfActivityDirective]
 })
 export class AuthFeatureModule {}

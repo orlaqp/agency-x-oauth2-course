@@ -75,7 +75,7 @@ export class User {
     }
 
     public can(activity: string): boolean {
-        return this._activities.includes(activity);
+        return !activity || this._activities.includes(activity);
     }
 
     private _getActivities(roles: string[], role_activities: IRoleActivities): string[] {

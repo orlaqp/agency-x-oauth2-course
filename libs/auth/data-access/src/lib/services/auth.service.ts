@@ -37,7 +37,7 @@ export class AuthService {
     }
 
     can(activity: string | Observable<string>): Observable<boolean> {
-        if (!activity) return of(false);
+        if (!activity) return of(true);
 
         const activityObservable = isObservable(activity)
             ? activity

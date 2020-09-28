@@ -20,18 +20,22 @@
             </button>
         </mat-menu>
 
-        <li
-            *ngFor="let item of menuItems"
-            class="menu-item"
-            (click)="navigate(item)"
-            [routerLink]="item.route"
-            routerLinkActive="menu-item--selected"
-        >
-            <mat-icon class="menu-item__icon">{{ item.icon }}</mat-icon>
-            <div class="menu-item__text mat-body-1">
-                {{ item.text }}
-            </div>
-        </li>
+        <ng-container *ngFor="let item of menuItems">
+            <li
+                *axIfActivity="item.activity"
+                class="menu-item"
+                (click)="navigate(item)"
+                [routerLink]="item.route"
+                routerLinkActive="menu-item--selected"
+            >
+                <mat-icon class="menu-item__icon">{{ item.icon }}</mat-icon>
+                <div class="menu-item__text mat-body-1">
+                    {{ item.text }}
+                </div>
+            </li>
+        </ng-container>
+
+        
     </ul>
 
     <div class="menu__profile">

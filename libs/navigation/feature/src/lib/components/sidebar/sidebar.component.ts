@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 export class SidebarComponent implements OnInit {
     menuItems = [
         // { id: 'add', icon: 'add', text: 'Add', route: '/add/item' },
-        { id: 'dashboard', icon: 'dashboard', text: 'Dash', route: '/home/dashboard' },
-        { id: 'people', icon: 'people', text: 'Clients', route: '/home/clients' },
+        { id: 'dashboard', icon: 'dashboard', text: 'Dash', route: '/home/dashboard', activity: 'view-dashboard' },
+        { id: 'people', icon: 'people', text: 'Clients', route: '/home/clients', activity: 'list-clients' },
         { id: 'calendar', icon: 'insert_invitation', text: 'Calendar', route: '/home/calendar' },
-        { id: 'payments', icon: 'attach_money', text: 'Payments', route: '/home/payments' },
+        { id: 'payments', icon: 'attach_money', text: 'Payments', route: '/home/payments', activity: 'add-payment' },
         { id: 'settings', icon: 'settings_input_component', text: 'Settings', route: '/home/settings' }
     ]
 
