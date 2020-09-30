@@ -14,7 +14,7 @@
             <div>Add</div>
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item *ngFor="let a of addActions">
+            <button [axDisabledUnlessActivity]="a.activity" mat-menu-item *ngFor="let a of addActions">
                 <mat-icon>{{ a.icon }}</mat-icon>
                 <span>{{ a.text }}</span>
             </button>
